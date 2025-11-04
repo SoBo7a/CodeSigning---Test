@@ -1,6 +1,6 @@
 ﻿# Who Signed Me?
 
-Small Windows **console app** that inspects the **digital signature** of the running EXE, shows whether the file has a **Mark-of-the-Web (MOTW)**, and performs a **Windows trust check** via `WinVerifyTrust` using the Authenticode policy (the same decision UAC uses for *Verified publisher* vs *Unknown publisher*).
+Small Windows **console app** that inspects the **digital signature** of the running EXE and performs a **Windows trust check** via `WinVerifyTrust` using the Authenticode policy (the same decision UAC uses for *Verified publisher* vs *Unknown publisher*).
 
 ---
 
@@ -8,7 +8,6 @@ Small Windows **console app** that inspects the **digital signature** of the run
 
 - **Signature info** (from the embedded Authenticode signer): Subject/Issuer, validity, thumbprint.  
   *Note: this just reads the signer – it does not decide trust.*
-- **MOTW**: prints the `Zone.Identifier` ADS contents if present (i.e., downloaded from the internet).
 - **Windows trust decision**: calls `WinVerifyTrust` (Authenticode policy) and prints:
   - `TRUSTED` → would show **Verified publisher** in UAC.
   - `NOT TRUSTED` → prints the **HRESULT** in hex and a short description (e.g., `0x800B0109 CERT_E_UNTRUSTEDROOT`).
@@ -78,7 +77,8 @@ signtool verify /pa /v /all ".\CodeSigning - Test.exe"
 
 1. Host the signed EXE on any HTTPS location (SharePoint/OneDrive/website/GitHub release).  
 2. **Download with Microsoft Edge** and run from **Downloads** so the file keeps **MOTW**.
-3. (Optional) Add MOTW to the EXE using PowerShell:
-	```cmd
-	Set-Content -Path ".\CodeSigning - Test.exe" -Stream Zone.Identifier -Value "[ZoneTransfer]`r`nZoneId=3" -Encoding ASCII
-	```
+
+Add **MOTW** to the EXE using PowerShell:
+```cmd
+Set-Content -Path ".\CodeSigning - Test.exe" -Stream Zone.Identifier -Value "[ZoneTransfer]`r`nZoneId=3" -Encoding ASCII
+```

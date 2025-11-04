@@ -16,9 +16,6 @@ namespace CodeSigningDemo
             Signer.Print(self);
             Console.WriteLine();
 
-            Motw.Print(self);
-            Console.WriteLine();
-
             WinTrust.PrintTrust(self);
 
             Console.WriteLine();
