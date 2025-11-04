@@ -1,0 +1,67 @@
+# ---> Visual Studio / .NET
+
+# VS metadata
+.vs/
+*.suo
+*.user
+*.rsuser
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Tt]est[Rr]esults/
+*.cache
+*.ilk
+*.pdb
+*.obj
+*.exe.config
+*.dll.config
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+!packages.config
+
+# Publish / ClickOnce
+app.publish/
+Properties/PublishProfiles/
+*.pubxml
+*.pubxml.user
+*.Publish.xml
+
+# Code analysis / coverage
+*.CodeAnalysisLog.xml
+*.CodeCoverage
+*.coverage
+*.coveragexml
+
+# IDEs
+.vscode/
+.idea/
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Logs / temp
+*.log
+*.svclog
+*.tmp
+*.tmp_proj
+
+# Certificates / private keys (important for this project)
+*.pfx
+*.p12
+*.p7b
+*.snk
+*.key
+*.cer
+*.crt
+*.der
+
+# OS junk
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
