@@ -52,16 +52,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleUi.cs" />
-    <Compile Include="Signer.cs" />
-    <Compile Include="WinTrust.cs" />
-    <Compile Include="Motw.cs" />
+    <Compile Include="UI\ConsoleUi.cs" />
+    <Compile Include="Features\Signer.cs" />
+    <Compile Include="Features\WinTrust.cs" />
+    <Compile Include="Features\Motw.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="CodeSigning - Test_2_TemporaryKey.pfx" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
