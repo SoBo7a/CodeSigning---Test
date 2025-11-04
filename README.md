@@ -65,6 +65,8 @@ signtool sign /a /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 
 signtool sign /fd SHA256 /sha1 <YOUR_CERT_THUMBPRINT_NO_SPACES> /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 ".\bin\Release\CodeSigning - Test.exe"
 ```
 
+---
+
 ### C) Verify the Signature
 ```cmd
 signtool verify /pa /v /all ".\bin\Release\CodeSigning - Test.exe"
