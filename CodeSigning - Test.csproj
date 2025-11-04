@@ -33,13 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7E62181C68576329BFE0B9F4FFE3301EA52FCF7F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>0B89CEE505A9F1B377F35D9D90B29F49907EAA31</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>CodeSigning - Test_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>CodeSigning - Test_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
