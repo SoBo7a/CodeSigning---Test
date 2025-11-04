@@ -44,11 +44,11 @@ You can sign the built EXE with either a **self-signed test certificate** or a *
    - `Project → Properties → Signing`
    - Tick **Sign the ClickOnce manifests**
    - Click **Create Test Certificate…**, set a password  
-   - A file like `CodeSigning - Test_…_TemporaryKey.pfx` appears in your project
+   - A file like `CodeSigning - Test_TemporaryKey.pfx` appears in your project
 
 2. **Sign with SignTool (cmd.exe)**
    ```cmd
-   signtool sign /fd SHA256 /f "<full path>\CodeSigning - Test_…_TemporaryKey.pfx" /p "<YOUR_PASSWORD>" /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 ".\bin\Release\CodeSigning - Test.exe"
+   signtool sign /fd SHA256 /f ".\CodeSigning - Test_TemporaryKey.pfx" /p "<YOUR_PASSWORD>" /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 ".\CodeSigning - Test.exe"
    ```
 
 ---
@@ -57,19 +57,19 @@ You can sign the built EXE with either a **self-signed test certificate** or a *
 
 **Sign (auto-select certificate)**
 ```cmd
-signtool sign /a /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 /fd SHA256 ".\bin\Release\CodeSigning - Test.exe"
+signtool sign /a /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 /fd SHA256 ".\CodeSigning - Test.exe"
 ```
 
 **Sign (explicit certificate by thumbprint)**
 ```cmd
-signtool sign /fd SHA256 /sha1 <YOUR_CERT_THUMBPRINT_NO_SPACES> /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 ".\bin\Release\CodeSigning - Test.exe"
+signtool sign /fd SHA256 /sha1 <YOUR_CERT_THUMBPRINT_NO_SPACES> /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 ".\CodeSigning - Test.exe"
 ```
 
 ---
 
 ### C) Verify the Signature
 ```cmd
-signtool verify /pa /v /all ".\bin\Release\CodeSigning - Test.exe"
+signtool verify /pa /v /all ".\CodeSigning - Test.exe"
 ```
 
 ---
@@ -78,3 +78,7 @@ signtool verify /pa /v /all ".\bin\Release\CodeSigning - Test.exe"
 
 1. Host the signed EXE on any HTTPS location (SharePoint/OneDrive/website/GitHub release).  
 2. **Download with Microsoft Edge** and run from **Downloads** so the file keeps **MOTW**.
+3. (Optional) Add MOTW to the EXE using PowerShell:
+	```cmd
+	Set-Content -Path ".\CodeSigning - Test.exe" -Stream Zone.Identifier -Value "[ZoneTransfer]`r`nZoneId=3" -Encoding ASCII
+	```
