@@ -55,7 +55,6 @@
     <Compile Include="UI\ConsoleUi.cs" />
     <Compile Include="Features\Signer.cs" />
     <Compile Include="Features\WinTrust.cs" />
-    <Compile Include="Features\Motw.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
