@@ -36,7 +36,7 @@ Press **any key** to exit.
 
 ## Signing the EXE
 
-You can sign the built EXE with either a **self-signed test certificate** or a **public trusted token-based certificate**.
+You can sign the built EXE with either a **self-signed test certificate** or a **public trusted, token-based certificate**.
 
 ### A) Sign with a self-signed test certificate (GUI via Visual Studio)
 
@@ -65,15 +65,14 @@ signtool sign /a /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 
 signtool sign /fd SHA256 /sha1 <YOUR_CERT_THUMBPRINT_NO_SPACES> /tr http://timestamp.globalsign.com/tsa/r6advanced1 /td SHA256 ".\bin\Release\CodeSigning - Test.exe"
 ```
 
-### C) Verify the Signature using SignTool
+### C) Verify the Signature
 ```cmd
 signtool verify /pa /v /all ".\bin\Release\CodeSigning - Test.exe"
 ```
 
 ---
 
-## Triggering SmartScreen (optional demo)
+## Triggering SmartScreen
 
 1. Host the signed EXE on any HTTPS location (SharePoint/OneDrive/website/GitHub release).  
-2. **Download with Microsoft Edge** and run from **Downloads** so the file keeps **MOTW**.  
-3. Expect a SmartScreen prompt for new publishers. If you continue, UAC will show **Verified publisher** (if the trust check passes), matching the app’s `TRUSTED`.
+2. **Download with Microsoft Edge** and run from **Downloads** so the file keeps **MOTW**.
